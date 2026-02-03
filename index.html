@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ديمة - ديمة نقاء</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --imperial-blue: #03256C;
+            --persian-blue: #2541B2;
+            --ocean-deep: #1768AC;
+            --sky-surge: #06BEE1;
+            --water-gradient: linear-gradient(135deg, var(--imperial-blue) 0%, var(--persian-blue) 30%, var(--ocean-deep) 60%, var(--sky-surge) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(180deg, #e8f4f8 0%, #ffffff 100%);
+            overflow-x: hidden;
+            color: var(--imperial-blue);
+        }
+
+        html{
+            scroll-behavior: smooth;
+        }
+
+        /* Animated Water Background */
+        .water-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.05;
+            background-image: 
+                radial-gradient(circle at 20% 50%, var(--sky-surge) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, var(--ocean-deep) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, var(--persian-blue) 0%, transparent 50%);
+            animation: waterFlow 20s ease-in-out infinite;
+        }
+
+        @keyframes waterFlow {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(3, 37, 108, 0.1);
+            z-index: 1000;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            height: 6rem;
+            filter: drop-shadow(0 2px 8px rgba(6, 190, 225, 0.3));
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .brand-name {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: var(--water-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--imperial-blue);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 3px;
+            background: var(--sky-surge);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--sky-surge);
+            transform: translateY(-2px);
+        }
+
+        .cta-btn {
+            padding: 0.8rem 2rem;
+            background: var(--water-gradient);
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(6, 190, 225, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(6, 190, 225, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 100px;
+            padding: 6rem 5% 4rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            animation: fadeInUp 0.8s ease-out 0.3s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content h1 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: var(--water-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 0.8s ease-out 0.5s backwards;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.8rem;
+            color: var(--ocean-deep);
+            font-weight: 500;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.7s backwards;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--persian-blue);
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease-out 0.9s backwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            animation: fadeInUp 0.8s ease-out 1.1s backwards;
+        }
+
+        .primary-btn {
+            padding: 1.2rem 3rem;
+            background: var(--water-gradient);
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 6px 20px rgba(6, 190, 225, 0.4);
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(6, 190, 225, 0.6);
+        }
+
+        .secondary-btn {
+            padding: 1.2rem 3rem;
+            background: transparent;
+            text-decoration: none;
+            color: var(--imperial-blue);
+            border: 3px solid var(--sky-surge);
+            border-radius: 50px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .secondary-btn:hover {
+            background: var(--sky-surge);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(6, 190, 225, 0.4);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInRight 1s ease-out 0.5s backwards;
+        }
+
+        .bio-img{
+            border-radius: 5%;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 20px 60px rgba(6, 190, 225, 0.3));
+            animation: floatBottles 6s ease-in-out infinite;
+        }
+
+        @keyframes floatBottles {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        /* Water Droplets Decoration */
+        .droplets {
+            position: absolute;
+            top: 10%;
+            left: -5%;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .droplet {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, var(--sky-surge), transparent);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: dropletFall 4s ease-in-out infinite;
+        }
+
+        .droplet:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .droplet:nth-child(2) { left: 30%; animation-delay: 0.5s; }
+        .droplet:nth-child(3) { left: 50%; animation-delay: 1s; }
+        .droplet:nth-child(4) { left: 70%; animation-delay: 1.5s; }
+        .droplet:nth-child(5) { left: 90%; animation-delay: 2s; }
+
+        @keyframes dropletFall {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(400px) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Cairo', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: var(--water-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--ocean-deep);
+            margin-bottom: 4rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(3, 37, 108, 0.1);
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--water-gradient);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.5s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 60px rgba(6, 190, 225, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--imperial-blue);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--ocean-deep);
+        }
+
+        /* Products Section */
+        .products {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, rgba(6, 190, 225, 0.05) 0%, rgba(3, 37, 108, 0.05) 100%);
+        }
+
+        .products-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .products-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 25px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(3, 37, 108, 0.08);
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--water-gradient);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: -1;
+        }
+
+        .product-card:hover::after {
+            opacity: 0.1;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(6, 190, 225, 0.3);
+        }
+
+        .product-size {
+            font-family: 'Cairo', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            background: var(--water-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .product-label {
+            font-size: 1.2rem;
+            color: var(--ocean-deep);
+            font-weight: 600;
+        }
+
+        /* Offers Section */
+        .offers {
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .offer-card {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(3, 37, 108, 0.1);
+            transition: all 0.5s ease;
+            position: relative;
+        }
+
+        .offer-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 60px rgba(6, 190, 225, 0.3);
+        }
+
+        .offer-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(6, 190, 225, 0.1) 0%, rgba(3, 37, 108, 0.1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .offer-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .offer-card:hover .offer-image img {
+            transform: scale(1.1);
+        }
+
+        .offer-image-placeholder {
+            font-size: 4rem;
+            opacity: 0.3;
+        }
+
+        .offer-content {
+            padding: 2rem;
+        }
+
+        .offer-title {
+            font-family: 'Cairo', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--imperial-blue);
+            margin-bottom: 1rem;
+        }
+
+        .offer-description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--ocean-deep);
+            margin-bottom: 1.5rem;
+        }
+
+        .offer-price {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .old-price {
+            font-size: 1.3rem;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .new-price {
+            font-family: 'Cairo', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: var(--water-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .offer-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--water-gradient);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 6px 20px rgba(6, 190, 225, 0.3);
+        }
+
+        .offer-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(6, 190, 225, 0.5);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 5rem 5%;
+            background: var(--imperial-blue);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(6, 190, 225, 0.1) 0%, transparent 70%);
+            animation: statsRotate 20s linear infinite;
+        }
+
+        @keyframes statsRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .stats-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 2px solid rgba(6, 190, 225, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--sky-surge);
+        }
+
+        .stat-number {
+            font-family: 'Cairo', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--sky-surge);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, var(--sky-surge) 0%, var(--ocean-deep) 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+        }
+
+        .cta-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cta-input {
+            flex: 1;
+            min-width: 300px;
+            padding: 1.2rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1.1rem;
+            text-align: right;
+        }
+
+        .cta-submit {
+            padding: 1.2rem 3rem;
+            background: var(--imperial-blue);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .cta-submit:hover {
+            background: var(--persian-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(3, 37, 108, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--imperial-blue);
+            color: white;
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--sky-surge);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--sky-surge);
+            padding-right: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--sky-surge);
+            transform: translateY(-5px);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1.4rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .primary-btn, .secondary-btn {
+                width: 100%;
+            }
+
+            .cta-section h2 {
+                font-size: 2.5rem;
+            }
+
+            .stat-number {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="water-bg"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="./img/logo.png" alt="ديمة" class="logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#features">المميزات</a></li>
+                <li><a href="#products">المنتجات</a></li>
+                <li><a href="#offers">العروض</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+            </ul>
+            <a class="cta-btn" href="#products">اطلب الآن</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>ديمة</h1>
+            <div class="subtitle">صحتك في أيدي أمينة</div>
+            <p>مياه معدنية طبيعية 100% من أنقى المصادر الطبيعية، معبأة بأحدث التقنيات العالمية لضمان جودة وصحة لا مثيل لها</p>
+            <div class="hero-buttons">
+                <a class="primary-btn" href="#products">ألق نظرة علي المنتجات</a>
+                <a class="secondary-btn" href="#features">تعرف علينا</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img class="bio-img" src="./img/ad.png" alt="منتجات ديمة">
+            <div class="droplets">
+                <div class="droplet"></div>
+                <div class="droplet"></div>
+                <div class="droplet"></div>
+                <div class="droplet"></div>
+                <div class="droplet"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2 class="section-title">لماذا ديمة؟</h2>
+        <p class="section-subtitle">نقدم لك الأفضل دائماً</p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">💧</div>
+                <h3>نقاء 100%</h3>
+                <p>مياه معدنية طبيعية من أنقى المصادر الجبلية، خالية من الشوائب والملوثات</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏔️</div>
+                <h3>من الطبيعة</h3>
+                <p>نستخرج مياهنا من أعماق الجبال حيث النقاء الطبيعي والمعادن المفيدة</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">✅</div>
+                <h3>معتمد دولياً</h3>
+                <p>حاصلة على شهادات الجودة العالمية وموافقة هيئة الغذاء والدواء</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔬</div>
+                <h3>فحص دقيق</h3>
+                <p>نفحص كل قطرة بأحدث التقنيات المختبرية لضمان أعلى معايير الجودة</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📦</div>
+                <h3>تعبئة آمنة</h3>
+                <p>عبوات صحية وآمنة قابلة لإعادة التدوير، تحافظ على نقاء المياه</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚚</div>
+                <h3>توصيل سريع</h3>
+                <p>خدمة توصيل فوري إلى باب منزلك في جميع أنحاء المملكة</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="products-container">
+            <h2 class="section-title">منتجاتنا</h2>
+            <p class="section-subtitle">جميع المقاسات التي تحتاجها</p>
+            <div class="products-showcase">
+                <div class="product-card">
+                    <div class="product-size">200مل</div>
+                    <p class="product-label">حجم شخصي</p>
+                    <p class="product-price">2 ريال</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-size">كرتون صغير</div>
+                    <p class="product-label">24 حبة</p>
+                    <p class="product-price">10 ريال</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-size">كرتون كبير</div>
+                    <p class="product-label">48 حبة</p>
+                    <p class="product-price">15 ريال</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-size">330مل</div>
+                    <p class="product-label">حجم قياسي</p>
+                    <p class="product-price">2.75 ريال</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-size">600مل</div>
+                    <p class="product-label">حجم متوسط</p>
+                    <p class="product-price">5 ريال</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-size">1.5لتر</div>
+                    <p class="product-label">حجم كبير</p>
+                    <p class="product-price">6 ريال</p>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-size">3لتر</div>
+                    <p class="product-label">حجم عائلي</p>
+                    <p class="product-price">6.5 ريال</p>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-size">15لتر</div>
+                    <p class="product-label">جالون</p>
+                    <p class="product-price">16 ريال</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offers Section -->
+    <section class="offers" id="offers">
+        <h2 class="section-title">عروض خاصة</h2>
+        <p class="section-subtitle">احصل على أفضل العروض والخصومات</p>
+        <div class="offers-grid">
+            <div class="offer-card">
+                <div class="offer-image">
+                    <img src="./img/offer-3.png" alt="عرض الكرتونة">
+                </div>
+                <div class="offer-content">
+                    <h3 class="offer-title">عرض جالونات المطبخ</h3>
+                    <p class="offer-description">اشتر 7 جالونات وخذ توصيل مجاني</p>
+                    <div class="offer-price">
+                        <span class="old-price">120 ريال</span>
+                        <span class="new-price">84 ريال</span>
+                    </div>
+                    <button class="offer-btn">اطلب الآن</button>
+                </div>
+            </div>
+
+            <div class="offer-card">
+                <div class="offer-image">
+                    <img src="./img/offer-2.png" alt="عرض مجموعة المقاسات">
+                </div>
+                <div class="offer-content">
+                    <h3 class="offer-title">عرض مجموعة المقاسات</h3>
+                    <p class="offer-description">احصل على جميع مقاسات ديمة في باقة واحدة - من 200مل حتى 5 لتر</p>
+                    <div class="offer-price">
+                        <span class="old-price">200 ريال</span>
+                        <span class="new-price">150 ريال</span>
+                    </div>
+                    <button class="offer-btn">اطلب الآن</button>
+                </div>
+            </div>
+
+            <div class="offer-card">
+                <div class="offer-image">
+                    <img src="./img/offer-1.png" alt="عرض ال10">
+                </div>
+                <div class="offer-content">
+                    <h3 class="offer-title">عرض ال10</h3>
+                    <p class="offer-description">اشتر 5 كرتونات 200مل وخذ 3 مجانا</p>
+                    <div class="offer-price">
+                        <span class="old-price">100 ريال</span>
+                        <span class="new-price">50 ريال</span>
+                    </div>
+                    <button class="offer-btn">اطلب الآن</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <h2 class="section-title" style="color: white;"">ديمة في أرقام</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">سنوات من الخبرة</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50K+</div>
+                    <div class="stat-label">عميل سعيد</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">48</div>
+                    <div class="stat-label">موظف لخدمة العملاء</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">+63</div>
+                    <div class="stat-label">عربة توصيل</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <h2>جرب ديمة اليوم</h2>
+        <p>احصل على أول طلب مع خصم 20%</p>
+        <form class="cta-form">
+            <input type="email" class="cta-input" placeholder="أدخل بريدك الإلكتروني">
+            <button type="submit" class="cta-submit">اشترك الآن</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>عن ديمة</h3>
+                <p>شركة رائدة في إنتاج وتوزيع المياه المعدنية الطبيعية في المملكة العربية السعودية</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Twitter">🐦</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="LinkedIn">💼</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>روابط سريعة</h3>
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#features">المميزات</a></li>
+                    <li><a href="#products">المنتجات</a></li>
+                    <li><a href="#contact">تواصل معنا</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>خدمة العملاء</h3>
+                <ul>
+                    <li><a href="#">الأسئلة الشائعة</a></li>
+                    <li><a href="#">سياسة الاسترجاع</a></li>
+                    <li><a href="#">الشحن والتوصيل</a></li>
+                    <li><a href="#">الشروط والأحكام</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>تواصل معنا</h3>
+                <ul>
+                    <li>📞 +126 235 123</li>
+                    <li>📧 water@dema-comapny.sa</li>
+                    <li>📍 الرياض، المملكة العربية السعودية</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 ديمة. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+</body>
+</html>
